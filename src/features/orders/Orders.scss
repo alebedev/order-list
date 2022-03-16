@@ -1,0 +1,51 @@
+.orderListHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80px;
+}
+
+.orderLine {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 80px;
+  border: 1px solid #ececec;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.orderType {
+  position: absolute;
+  background-color: aqua;
+  border-radius: 5px;
+  transform: rotate(-90deg);
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  // positioning magic for rotated element
+  left: -18px;
+  top: 25px;
+  bottom: -36px;
+  width: 72px;
+  height: 28px;
+
+  line-height: 28px;
+}
+
+.orderItem {
+  flex-basis: 40px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  text-overflow: ellipsis;
+  text-wrap: none;
+  margin: auto 8px;
+
+  &:first-child {
+    margin-left: 50px;
+  }
+}

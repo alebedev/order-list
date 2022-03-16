@@ -30,6 +30,8 @@ Time-saving compromises
 - Default eslint config
 - No i18n
 - No accessibility
+- No money and date formatting
+- Page size is hardcoded
 
 Other
 - No unit tests - no complex business logic
