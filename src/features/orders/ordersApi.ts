@@ -90,7 +90,7 @@ export async function fetchOrders(
       id: getId(),
       num: "123456780",
       createdAt: "2022-01-01T10:10:14Z",
-      type: OrderType.Online,
+      type: OrderType.Instore,
       store: {
         country: "NO",
         name: "Butik X",

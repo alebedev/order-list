@@ -1,3 +1,5 @@
+@use "../../theme/theme.scss" as *;
+
 .contacts {
   display: flex;
   flex-direction: row;
@@ -6,8 +8,9 @@
 }
 
 .contactSection {
-  border: solid 1px red;
   & h3 {
+    font-size: 14px;
+    line-height: 22px;
   }
 }
 
@@ -18,6 +21,11 @@
 
   &:hover,
   &:active {
-    color: blue;
+    color: $forest-green;
+    text-decoration: underline;
   }
+}
+
+.contactDetails {
+  color: $dark-grey;
 }

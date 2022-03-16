@@ -1,3 +1,20 @@
+@use "../../theme/theme" as *;
+
+.ordersSection {
+  position: relative;
+
+  & .sectionHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & .helpLink {
+    font-size: 14px;
+  }
+}
+
 .orderListHeader {
   display: flex;
   flex-direction: row;
@@ -11,16 +28,24 @@
   flex-direction: row;
   position: relative;
   height: 80px;
-  border: 1px solid #ececec;
+  border: 1px solid $light-grey;
   box-sizing: border-box;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.16);
   border-radius: 5px;
   margin-bottom: 8px;
+
+  & a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .orderType {
   position: absolute;
-  background-color: aqua;
+  background-color: #ccc;
   border-radius: 5px;
   transform: rotate(-90deg);
   text-align: center;
@@ -34,7 +59,22 @@
   width: 72px;
   height: 28px;
 
+  font-size: 10px;
   line-height: 28px;
+
+  &.online {
+    background-color: $light-grey;
+  }
+
+  &.instore {
+    background-color: black;
+    color: $white;
+  }
+
+  &.manual {
+    background-color: $status-progress;
+    color: $white;
+  }
 }
 
 .orderItem {
@@ -53,4 +93,40 @@
 .listStatus {
   text-align: center;
   min-height: 80px;
+  line-height: 80px;
+}
+
+.paymentStatus {
+  padding-left: 16px;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    top: 4px;
+  }
+
+  &.paid:before {
+    background-color: $status-paid;
+  }
+  &.inprogress:before {
+    background-color: $status-progress;
+  }
+  &.failed:before {
+    background-color: $status-fail;
+  }
+}
+
+.orderFlag {
+  background-color: white;
+  position: absolute;
+  left: 25px;
+  height: 20px;
+  width: 20px;
+  top: calc(50% - 10px);
+  border-radius: 50%;
 }

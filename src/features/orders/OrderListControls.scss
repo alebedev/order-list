@@ -1,3 +1,5 @@
+@use "../../theme/theme" as *;
+
 .pageControls {
   margin-top: 40px;
 
@@ -11,13 +13,15 @@
     height: 40px;
     margin-left: 20px;
     font-size: 14px;
+    border-radius: 5px;
+    padding: 0 10px;
 
     &.pageLink {
       width: 40px;
       border-radius: 50%;
 
       &.current {
-        background-color: green;
+        background-color: $forest-green;
         color: white;
       }
     }
@@ -26,8 +30,12 @@
       cursor: pointer;
 
       &:hover {
-        color: blue;
-        background-color: #ececec;
+        background-color: $mint-green-main;
+      }
+
+      &:active {
+        color: $white;
+        background-color: $mint-green-pressed;
       }
     }
   }

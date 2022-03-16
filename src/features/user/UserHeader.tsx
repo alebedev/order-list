@@ -1,11 +1,12 @@
 import { useAppSelector } from "../../app/hooks";
 import { selectUser } from "./userSlice";
+import "./UserHeader.scss";
 
 export function UserHeader() {
   const user = useAppSelector(selectUser);
   return (
-    <h2>
+    <h1 className="userHeader">
       {user.displayName} ({user.id})
-    </h2>
+    </h1>
   );
 }

@@ -47,7 +47,7 @@ function Section({
 
 function AddressInfo({ address }: { address: Address }) {
   return (
-    <div>
+    <div className="contactDetails">
       {address.street},<br />
       {address.postalCode} {address.city} {address.country}
     </div>
