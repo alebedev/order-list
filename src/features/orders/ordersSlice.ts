@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import { fetchOrders } from "./ordersApi";
 
@@ -49,7 +49,7 @@ export type OrdersState = {
   value?: Order[];
   status: "idle" | "loading" | "failed";
   page: number;
-  totalPages?: number;
+  pagesTotal?: number;
 };
 
 const initialState: OrdersState = {
@@ -67,7 +67,22 @@ export const fetchOrdersAction = createAsyncThunk(
 export const ordersSlice = createSlice({
   name: "orders",
   initialState,
-  reducers: {},
+  reducers: {
+    // Use the PayloadAction type to declare the contents of `action.payload`
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    nextPage: (state) => {
+      console.log("next", state);
+      if (!state.pagesTotal) {
+        return;
+      }
+      state.page = Math.min(state.page + 1, state.pagesTotal - 1);
+    },
+    prevPage: (state) => {
+      state.page = Math.max(0, state.page - 1);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchOrdersAction.pending, (state) => {

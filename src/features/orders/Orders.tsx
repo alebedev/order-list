@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchOrdersAction, Order, selectOrders } from "./ordersSlice";
 import { selectUser } from "../user/userSlice";
 import "./Orders.scss";
+import { OrderListControls } from "./OrderListControls";
 
 // TODO: Position help
 export function Orders() {
@@ -21,18 +22,15 @@ function OrderList() {
   const data = useAppSelector(selectOrders);
   const dispatch = useAppDispatch();
 
+  // Quick and dirty data loading.  Should use middleware to avoid mismatch between page and orders
   useEffect(() => {
     dispatch(fetchOrdersAction(data.page));
-    // Only on first mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  console.log("o", data);
+  }, [dispatch, data.page]);
 
   if (data.status === "loading") {
-    return <div>Loading...</div>;
+    return <div className="listStatus">Loading...</div>;
   } else if (data.status === "failed") {
-    return <div>Oops... Something went wrong</div>;
+    return <div className="listStatus">Oops... Something went wrong</div>;
   }
   return (
     <div>
@@ -95,8 +93,4 @@ function HeaderItem({ children }: { children: ReactNode }) {
 
 function LineItem({ children }: { children: ReactNode }) {
   return <div className="orderItem">{children}</div>;
-}
-
-function OrderListControls() {
-  return <div>TODO: Order list controls</div>;
 }

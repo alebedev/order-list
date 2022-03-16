@@ -1,0 +1,34 @@
+.pageControls {
+  margin-top: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  button {
+    border: none;
+    background: none;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 14px;
+
+    &.pageLink {
+      width: 40px;
+      border-radius: 50%;
+
+      &.current {
+        background-color: green;
+        color: white;
+      }
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+
+      &:hover {
+        color: blue;
+        background-color: #ececec;
+      }
+    }
+  }
+}
