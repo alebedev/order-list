@@ -10,7 +10,7 @@ export function Contacts() {
   const user = useAppSelector(selectUser);
   return (
     <div className="contacts">
-      <Section icon={null} title={`Contact ${user.firstName}`}>
+      <Section className="contactsHeader" title={`Contact ${user.firstName}`}>
         <a href={`mailto:${contacts.email}`} className="contactLink">
           {contacts.email}
         </a>
@@ -18,10 +18,10 @@ export function Contacts() {
           {contacts.phone}
         </a>
       </Section>
-      <Section icon={null} title="Shipping address">
+      <Section className="shippingHeader" title="Shipping address">
         <AddressInfo address={contacts.shipping} />
       </Section>
-      <Section icon={null} title="Invoice address">
+      <Section className="invoiceHeader" title="Invoice address">
         <AddressInfo address={contacts.invoice} />
       </Section>
     </div>
@@ -29,16 +29,16 @@ export function Contacts() {
 }
 
 function Section({
-  icon,
   title,
+  className = "",
   children,
 }: {
-  icon: any;
   title: string;
+  className?: string;
   children: ReactNode;
 }) {
   return (
-    <div className="contactSection">
+    <div className={`contactSection ${className}`}>
       <h3>{title}</h3>
       {children}
     </div>

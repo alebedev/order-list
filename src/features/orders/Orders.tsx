@@ -4,12 +4,23 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   fetchOrdersAction,
   Order,
+  PaymentMethod,
   PaymentStatus,
   selectOrders,
 } from "./ordersSlice";
 import { selectUser } from "../user/userSlice";
 import "./Orders.scss";
 import { OrderListControls } from "./OrderListControls";
+
+const paymentIcons = {
+  [PaymentMethod.Qliro]: require("../../assets/qliro.svg").default,
+  [PaymentMethod.Visa]: require("../../assets/visa.png"),
+  [PaymentMethod.Amex]: require("../../assets/amex.png"),
+  [PaymentMethod.Paypal]: require("../../assets/paypal.png"),
+  [PaymentMethod.Trustly]: require("../../assets/trustly.svg").default,
+};
+
+console.log(paymentIcons[PaymentMethod.Qliro]);
 
 export function Orders() {
   const user = useAppSelector(selectUser);
@@ -27,9 +38,12 @@ export function Orders() {
 
 function HelpLink() {
   return (
-    <a href="#" className="helpLink greenLink">
-      (i) Help
-    </a>
+    <div className="helpLink">
+      <a href="#" className="greenLink">
+        <span className="helpIcon">i</span>
+        Help
+      </a>
+    </div>
   );
 }
 
@@ -78,14 +92,19 @@ function OrderListItem({ order }: { order: Order }) {
   return (
     <div className="orderLine">
       <LineItem>
-        <a href="#" className="greenLink">
+        <a href="#" className="orderNum greenLink">
           {order.num}
         </a>
       </LineItem>
       <LineItem>{formatDate(order.createdAt)}</LineItem>
-      <LineItem>{order.store.name}</LineItem>
       <LineItem>
-        {order.payment.method} {order.payment.displayName}
+        <span className={`orderStore ${order.store.country.toLowerCase()}`}>
+          {order.store.name}
+        </span>
+      </LineItem>
+      <LineItem className="paymentMethod">
+        <img src={paymentIcons[order.payment.method]} />
+        {order.payment.displayName}
       </LineItem>
       <LineItem>
         <PaymentStatusDisplay status={order.payment.status} />
@@ -98,7 +117,7 @@ function OrderListItem({ order }: { order: Order }) {
         {order.type}
       </div>
 
-      {!!order.flagged && <div className="orderFlag">flag</div>}
+      {!!order.flagged && <div className="orderFlag"></div>}
     </div>
   );
 }

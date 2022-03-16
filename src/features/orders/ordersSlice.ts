@@ -11,7 +11,6 @@ export enum OrderType {
 export enum PaymentMethod {
   Qliro = "Qliro",
   Visa = "Visa",
-  Master = "Master",
   Amex = "Amex",
   Paypal = "Paypal",
   Trustly = "Trustly",

@@ -9,6 +9,8 @@
   color: $almost-back;
   font-size: 14px;
   line-height: 22px;
+
+  font-family: Metropolis;
 }
 
 .sectionHeader h2 {
@@ -19,4 +21,8 @@
 
 .greenLink {
   color: $green-link;
+
+  &:hover {
+    color: $mint-green-main;
+  }
 }

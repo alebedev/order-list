@@ -11,6 +11,20 @@
   & h3 {
     font-size: 14px;
     line-height: 22px;
+    padding-left: 25px;
+    font-weight: 600;
+  }
+
+  &.contactsHeader h3 {
+    background: url("../../assets/contacts.svg") center left no-repeat;
+  }
+
+  &.shippingHeader h3 {
+    background: url("../../assets/shipping.svg") center left no-repeat;
+  }
+
+  &.invoiceHeader h3 {
+    background: url("../../assets/invoice.svg") center left no-repeat;
   }
 }
 

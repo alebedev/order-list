@@ -9,9 +9,25 @@
     justify-content: space-between;
     align-items: center;
   }
+}
 
-  & .helpLink {
-    font-size: 14px;
+.helpLink {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+
+  .helpIcon {
+    margin-right: 5px;
+
+    display: inline-block;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+
+    color: $almost-back;
+    background-color: $light-grey;
+    text-align: center;
+    font-size: 12px;
   }
 }
 
@@ -113,20 +129,66 @@
   &.paid:before {
     background-color: $status-paid;
   }
+
   &.inprogress:before {
     background-color: $status-progress;
   }
+
   &.failed:before {
     background-color: $status-fail;
   }
 }
 
+.orderNum {
+  background-image: url("../../assets/corner-down-right.svg");
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-right: 20px;
+  font-weight: 600;
+}
+
 .orderFlag {
-  background-color: white;
   position: absolute;
   left: 25px;
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   top: calc(50% - 10px);
   border-radius: 50%;
+
+  background-image: url("../../assets/flag.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+
+.orderStore {
+  padding-left: 25px;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  &.se {
+    background-image: url("../../assets/se.svg");
+  }
+
+  &.uk {
+    background-image: url("../../assets/uk.svg");
+  }
+
+  &.no {
+    background-image: url("../../assets/no.svg");
+  }
+}
+
+.paymentMethod {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  & img {
+    height: 14px;
+    margin-right: 5px;
+    padding: 4px;
+    border-radius: 4px;
+    border: solid 1px $light-grey;
+  }
 }
