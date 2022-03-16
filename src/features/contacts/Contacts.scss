@@ -1,0 +1,23 @@
+.contacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.contactSection {
+  border: solid 1px red;
+  & h3 {
+
+  }
+}
+
+.contactLink {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+
+  &:hover, &:active {
+    color: blue;
+  }
+}
