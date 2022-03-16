@@ -8,7 +8,6 @@
 .contactSection {
   border: solid 1px red;
   & h3 {
-
   }
 }
 
@@ -17,7 +16,8 @@
   display: block;
   color: inherit;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: blue;
   }
 }

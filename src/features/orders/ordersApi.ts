@@ -1,1 +1,1 @@
-export async function fetchOrders(page: number) : Promise<any> {}
+export async function fetchOrders(page: number): Promise<any> {}
