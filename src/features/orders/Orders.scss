@@ -59,6 +59,19 @@
   }
 }
 
+.orderItem {
+  flex-basis: 40px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  text-overflow: ellipsis;
+  text-wrap: none;
+  margin: auto 8px;
+
+  &:first-child {
+    margin-left: 50px;
+  }
+}
+
 .orderType {
   position: absolute;
   background-color: #ccc;
@@ -90,19 +103,6 @@
   &.manual {
     background-color: $status-progress;
     color: $white;
-  }
-}
-
-.orderItem {
-  flex-basis: 40px;
-  flex-grow: 1;
-  flex-shrink: 0;
-  text-overflow: ellipsis;
-  text-wrap: none;
-  margin: auto 8px;
-
-  &:first-child {
-    margin-left: 50px;
   }
 }
 
@@ -138,15 +138,6 @@
     background-color: $status-fail;
   }
 }
-
-.orderNum {
-  background-image: url("../../assets/corner-down-right.svg");
-  background-position: right;
-  background-repeat: no-repeat;
-  padding-right: 20px;
-  font-weight: 600;
-}
-
 .orderFlag {
   position: absolute;
   left: 25px;
@@ -159,6 +150,14 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-color: white;
+}
+
+.orderNum {
+  background-image: url("../../assets/corner-down-right.svg");
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-right: 20px;
+  font-weight: 600;
 }
 
 .orderStore {
