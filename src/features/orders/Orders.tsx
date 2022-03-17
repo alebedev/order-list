@@ -20,8 +20,6 @@ const paymentIcons = {
   [PaymentMethod.Trustly]: require("../../assets/trustly.svg").default,
 };
 
-console.log(paymentIcons[PaymentMethod.Qliro]);
-
 export function Orders() {
   const user = useAppSelector(selectUser);
   return (
@@ -96,7 +94,7 @@ function OrderListHeader() {
 
 function OrderListItem({ order }: { order: Order }) {
   return (
-    <div className="orderLine">
+    <div className="orderLine" data-testid="order">
       <LineItem>
         <a
           href="#"

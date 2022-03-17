@@ -4,7 +4,21 @@ This is a home assignment for Qliro technical position
 
 Overall philosophy: simplest thing that would work
 
-Total time to implement: ...
+## Usage
+
+```bash
+# Installation
+yarn install
+
+# Open in browser
+yarn start
+
+# Tests
+yarn test
+
+# Build and verify
+yarn build
+```
 
 ### Architecture
 
@@ -39,8 +53,9 @@ Time-saving compromises
 - No i18n
 - No accessibility
 - No money formatting
-- Page size is hardcoded
+- Orders page size is hardcoded
 - Hardcoded sizes / margins
+- No e2e tests (does not make sense with mock backend, we already have integration tests)
 
 Other
 
@@ -57,5 +72,5 @@ What could've been used
 ## Notes on UI
 
 - Header - called "Header+search" in Figma, but there's no search
-- Link style - did it according to figma but hover /
-pressed effects look funny. Probably there should be another set of colors for forest green links
+- Link style - did it according to figma but hover / pressed effects look funny. Probably there should be another set of
+  colors for forest green links

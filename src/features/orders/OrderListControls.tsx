@@ -16,7 +16,7 @@ export function OrderListControls() {
   }
 
   return (
-    <div className="pageControls">
+    <div className="pageControls" data-testid="orderListControls">
       <button
         disabled={page === 0}
         onClick={() => dispatch(ordersSlice.actions.prevPage())}
