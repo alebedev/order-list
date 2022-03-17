@@ -39,7 +39,13 @@ export function Orders() {
 function HelpLink() {
   return (
     <div className="helpLink">
-      <a href="#" className="greenLink">
+      <a
+        href="#"
+        className="greenLink"
+        onClick={() => {
+          alert("Help click");
+        }}
+      >
         <span className="helpIcon">i</span>
         Help
       </a>
@@ -92,7 +98,13 @@ function OrderListItem({ order }: { order: Order }) {
   return (
     <div className="orderLine">
       <LineItem>
-        <a href="#" className="orderNum greenLink">
+        <a
+          href="#"
+          className="orderNum greenLink"
+          onClick={() => {
+            alert(`Order id=${order.id} click`);
+          }}
+        >
           {order.num}
         </a>
       </LineItem>
